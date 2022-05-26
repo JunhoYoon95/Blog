@@ -7,7 +7,7 @@
             <img src="<%= "/masterpiece.png" %>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><%=teacher.name%> </h5>
-                    <p class="card-text" style="height:150px; overflow:auto"><%=teacher.desc%></p>
+                    <p class="card-text" style="height:150px; overflow:auto; white-space:pre-wrap;"><%=teacher.desc%></p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">E-Mail : <a href="mailto:<%=teacher.email%>" style="color:black"><%=teacher.email%></a></li>
