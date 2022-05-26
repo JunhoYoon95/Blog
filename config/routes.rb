@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/teacher-new' =>'teacher#new'
   get '/teacher/edit/:id' =>'teacher#edit'
   post '/teacher/update/:id' =>'teacher#update'
+  get '/teacher/delete/:id' =>'teacher#delete'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
