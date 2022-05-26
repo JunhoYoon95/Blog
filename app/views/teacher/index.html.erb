@@ -1,20 +1,23 @@
-<div class="container mt-4" style="width: 100%;">
-    <div id="teachers">
-    <%= @teachers.each do |teacher| %>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><%=teacher.name%> </h5>
-                <p class="card-text"><%=teacher.desc%></p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%=teacher.email%></li>
-                <li class="list-group-item"><%=teacher.mobile%></li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Classes</a>
-                <a href="#" class="card-link">Edit</a>
-                <a href="#" class="card-link">Delete</a>
+<div class="container mt-4 mb-4" style="width: 100%;">
+    <a href="/teacher-new" class="card-link">New Teacher</a>
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:40px">
+    <% @teachers.each do |teacher| %>
+        <div class="col">
+            <div class="card">
+            <img src="<%= "/masterpiece.png" %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%=teacher.name%> </h5>
+                    <p class="card-text" style="height:150px; overflow:auto"><%=teacher.desc%></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">E-Mail : <a href="mailto:<%=teacher.email%>" style="color:black"><%=teacher.email%></a></li>
+                    <li class="list-group-item"><%=teacher.mobile%></li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Classes</a>
+                    <a href="/teacher/edit/<%=teacher.id%>" class="card-link">Edit</a>
+                    <a href="/teacher/delete/" class="card-link">Delete</a>
+                </div>
             </div>
         </div>
     <% end %>

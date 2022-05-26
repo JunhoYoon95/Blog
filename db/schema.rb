@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_075004) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_085614) do
   create_table "active_storage_attachments", charset: "utf8mb3", collation: "utf8_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,13 +45,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_075004) do
   end
 
   create_table "teachers", charset: "utf8mb3", collation: "utf8_bin", force: :cascade do |t|
-    t.string "name"
-    t.integer "country_code"
-    t.string "mobile"
-    t.string "email"
+    t.string "name", null: false
+    t.string "mobile", null: false
+    t.string "email", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "desc", limit: 45, default: "\"\""
+    t.text "desc"
   end
 
   create_table "users", charset: "utf8mb3", collation: "utf8_bin", force: :cascade do |t|

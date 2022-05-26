@@ -1,0 +1,35 @@
+<div class="container mt-4" style="width: 100%;">
+<form action="/teacher-create" method="post">
+
+<label for="basic-url" class="form-label"><b>Teacher's Name</b></label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text" class="form-control" placeholder="Full name" aria-label="Username" aria-describedby="basic-addon1" name="name">
+    </div>
+
+    <label for="basic-url" class="form-label"><b>Teacher's Email</b></label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">Email</span>
+        <input type="email" class="form-control" placeholder="ex) ysmeta@gmail.com" id="basic-url" aria-describedby="basic-addon3" name="email">
+    </div>
+    
+    <label for="basic-url" class="form-label"><b>Teacher's Mobile</b></label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">Mobile</span>
+        <input type="text" class="form-control" id="basic-url" placeholder="01011112222" aria-describedby="basic-addon3" name="mobile">
+    </div>
+
+    <%# <label for="basic-url" class="form-label"><b>Teacher's Picture</b></label>
+    <div class="mb-3">
+        <input class="form-control" type="file" id="formFile" name="image">
+    </div> %>
+
+    <label for="basic-url" class="form-label"><b>Introduction (Description)</b></label>
+    <div class="input-group">
+        <span class="input-group-text">Description</span>
+        <textarea class="form-control" aria-label="With textarea" name="desc"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary mt-4" style="float: right;">Submit</button>
+</form>
+</div>
