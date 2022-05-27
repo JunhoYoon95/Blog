@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # root 'pages#home'
   get '/' => 'pages#home'
+  get '/' =>'pages#index'
   devise_for :users
 
-  get '/' =>'pages#index'
+  get '/admin' => 'admin#index'
+
   get '/teachers' =>'teacher#index'
   post '/teacher-create' =>'teacher#create'
   get '/teacher-new' =>'teacher#new'
