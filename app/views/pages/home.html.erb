@@ -1,3 +1,24 @@
+<div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="true">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="/Gold.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+        <img src="/Gold.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+        <img src="/Gold.png" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 <div class="container" style="width: 100%;">
     <body>
         <h1>Pages#home</h1>
@@ -13,11 +34,9 @@
             <p>
                 Junmannn의 개발 Archive 에 오신 것을 환영합니다
             </p>
-            <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
         <% else %>
             <p>You are not signed in.</p>
         <% end %>
-        <%= render "layouts/teachers"%>
     </body>
 </div>
 
