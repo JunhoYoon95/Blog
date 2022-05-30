@@ -1,20 +1,52 @@
-
 <% @posts = Post.all%>
 <% @posts.each do |post| %>
-    <div class="card text-center">
+    <div class="card text-center mt-4">
         <div class="card-header">
-            글 작성자 : <%=post.author%>
+            <h5 class="card-title">
+                <% if post.post_type == 0 %>
+                  [공지글]
+                <% elsif post.post_type == 1 %>
+                  [숙제]
+                <% elsif post.post_type == 2 %>
+                  [이벤트]
+                <% end %>
+            </h5>
         </div>
         <div class="card-body">
-        <h5 class="card-title"><%=post.title%> </h5>
-        <p class="card-text"><%=post.content%> </p>
-        <p>
-            <%=post.post_type%>
-        </p>
-            <a href="#" class="btn btn-primary">Details</a>
+            <h3>제목 : <%=post.title%> </h3>
+            <p class="card-text"><%=post.content%> </p>
         </div>
         <div class="card-footer text-muted">
-            2 days ago
+            <p>
+                글 작성자 : <%=post.author%>
+            </p>
+            <p>
+                작성일 : <%=post.created_at%>
+            </p>
         </div>
+    </div>
+    <hr>
+    <%post.comments.each do |comment|%>
+        <div class="card" style="width: 90%; margin:auto">
+            <div class="card-body">
+                <h5 class="card-title"><%=comment.author[0..3]%>***</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= comment.created_at%></h6>
+                <p class="card-text"><%= comment.content%></p>
+                <%# 댓글의 작성자인 경우에만 Edit, Delete 가능하도록 한다 %>
+                <% if current_user.email === comment.author %>
+                    <a href="#" class="card-link">Edit</a>
+                    <a href="#" class="card-link">Delete</a>
+                <% end %>
+            </div>
+        </div>
+        <br>
+    <% end %>
+    <hr>
+    <div style="width:90%; margin:auto">
+        <h2>Leave a Comment</h2>
+        <form action="/comment/create/<%=post.id%>" method="post">
+            <textarea name="content" class="form-control"></textarea>
+            <input type="submit" class="btn btn-default"></input>
+        </form>
     </div>
 <% end %>

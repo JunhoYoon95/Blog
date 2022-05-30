@@ -4,6 +4,16 @@ class PostController < ApplicationController
         @author_email = current_user.email
     end
 
+    def comment_create
+        comment = Comment.new
+        comment.content = params[:content]
+        comment.author = current_user.email
+        comment.post_id = params[:post_id]
+
+        comment.save
+        redirect_to '/admin'
+    end
+
     def create
         post = Post.new
         post.title = params[:title]

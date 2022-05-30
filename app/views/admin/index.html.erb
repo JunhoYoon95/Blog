@@ -1,4 +1,3 @@
-<%=$tab%>
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <%# <a class="nav-link active" aria-current="page" href="#">Teacher</a> %>
@@ -17,18 +16,18 @@
     <h3 style="margin-top:40px">
         Signed in as : <%=@user_email%>
     </h3>
-    <a href="/teacher-new" class="card-link">New Teacher</a>
-    <a href="/post-new" class="card-link">New Post</a>
 </div>
 
 <% if $tab == "teacher"%>
+  <a href="/teacher-new" class="card-link" style="margin-left:40px;">New Teacher</a>
     <%= render :partial => 'teacher/index'%>
 <% end %>
 
 <% if $tab == "post"%>
+    <a href="/post-new" class="card-link" style="margin-left:40px;">New Post</a>
     <%= render :partial => 'layouts/posts'%>
 <% end %>
 
-<% if $tab == "post"%>
+<% if $tab == "user "%>
     DDDDDD
 <% end %>
