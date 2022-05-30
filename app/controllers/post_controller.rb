@@ -6,22 +6,21 @@ class PostController < ApplicationController
 
     def create
         post = Post.new
-
+        post.title = params[:title]
+        post.post_type = (params[:type]).to_i
+        post.author = current_user.email
         post.content = params[:content]
-        post.type = params[:type]
-        post.title = params[:titlel]
-        post.author = params[:author]
 
         post.save
         redirect_to '/admin'
     end
 
     def edit
-        @teacher = Teacher.find(params[:id])
+        @teacher = Post.find(params[:id])
     end
 
     def update
-        @teacher = Teacher.find(params[:id])
+        @teacher = Post.find(params[:id])
 
         @teacher.name = params[:name]
         @teacher.mobile = params[:mobile]
@@ -30,11 +29,11 @@ class PostController < ApplicationController
 
         @teacher.save
 
-        redirect_to '/teachers'
+        redirect_to '/posts'
     end
 
     def delete
         Teacher.find(params[:id]).destroy
-        redirect_to '/teachers'
+        redirect_to '/posts'
     end
 end

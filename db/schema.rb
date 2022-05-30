@@ -42,6 +42,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_085614) do
   create_table "posts", charset: "utf8mb3", collation: "utf8_bin", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "author", limit: 45, null: false
+    t.string "content", limit: 45, null: false
+    t.integer "post_type", null: false
+    t.string "title", limit: 45, null: false
   end
 
   create_table "teachers", charset: "utf8mb3", collation: "utf8_bin", force: :cascade do |t|

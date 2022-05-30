@@ -1,0 +1,24 @@
+<div class="container mt-4" style="width: 100%;">
+    <form action="/post-create" method="post">
+        <label for="basic-url" class="form-label"><b>Title</b></label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            <input type="text" class="form-control" placeholder="Title of the content" aria-label="Title" aria-describedby="basic-addon1" name="title">
+        </div>
+
+        <label for="basic-url" class="form-label"><b>Type of content</b></label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3">Type</span>
+            <input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="post_type" min="0" max="10">
+        </div>
+
+        
+        <label for="basic-url" class="form-label"><b>Content</b></label>
+        <div class="input-group">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" aria-label="With textarea" name="content"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary mt-4" style="float: right;">Submit</button>
+    </form>
+</div>

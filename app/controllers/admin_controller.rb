@@ -1,6 +1,17 @@
 class AdminController < ApplicationController
+$tab = "teacher"
     def index
-        @posts = Post.all
         @user_email = current_user.email
+    end
+
+    def change
+        puts "Changing"
+        $tab = params[:tab]
+        redirect_to '/admin'
+    end
+
+    def dmddo
+        puts "dddd"
+        $tab = "teacher"
     end
 end
