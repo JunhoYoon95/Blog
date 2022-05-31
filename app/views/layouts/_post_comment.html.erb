@@ -1,0 +1,13 @@
+<div class="card" style="width: 90%; margin:auto">
+    <div class="card-body">
+        <h5 class="card-title"><%=comment.author[0..3]%>***</h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= comment.created_at%></h6>
+        <p class="card-text"><%= comment.content%></p>
+        <%# 댓글의 작성자인 경우에만 Edit, Delete 가능하도록 한다 %>
+        <% if current_user.email === comment.author %>
+            <a href="#" class="card-link">Edit</a>
+            <a href="#" class="card-link">Delete</a>
+        <% end %>
+    </div>
+</div>
+<br>
