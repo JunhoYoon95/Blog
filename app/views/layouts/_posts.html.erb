@@ -1,25 +1,31 @@
 <% @posts = Post.order(created_at: :desc).all%>
 <% @posts.each do |post| %>
-    <div class="card text-center mt-4">
-        <div class="card-header">
-            <h5 class="card-title">
+<div style="width: 70%; margin:auto">
+    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">
                 <% if post.post_type == 0 %>
-                  [공지글]
+                    [공지글]
                 <% elsif post.post_type == 1 %>
-                  [숙제]
+                    [숙제]
                 <% elsif post.post_type == 2 %>
-                  [이벤트]
+                    [이벤트]
                 <% end %>
-            </h5>
+                <%=post.title%>
+            </div>
         </div>
-        <div class="card-body">
-            <h3>제목 : <%=post.title%> </h3>
-            <p class="card-text"><%=post.content%> </p>
+        <span class="badge bg-primary rounded-pill" type="button" data-toggle="collapse" data-target="#<%=post.id%>">
+            <%=post.comments.size%>
+        </span>
+    </li>
+    <div class="card text-center">
+        <div class="card-header text-muted">
+            글 작성자 : <%=post.author%>
+        </div>
+        <div class="card-body" style="margin:30px 30px 30px 30px" >
+            <p class="card-text" style="text-align : left"><%=post.content%> </p>
         </div>
         <div class="card-footer text-muted">
-            <p>
-                글 작성자 : <%=post.author%>
-            </p>
             <p>
                 작성일 : <%=post.created_at%>
             </p>
@@ -28,10 +34,11 @@
     <hr>
     
     <% post_comments = post.comments.order("comments.created_at DESC")%>
-    <%post_comments.each do |comment|%>
-        <%= render :partial => 'layouts/post_comment', :locals => {:comment => comment}%>
-    <% end %>
-    <hr>
+    <div id="<%=post.id%>">
+        <%post_comments.each do |comment|%>
+            <%= render :partial => 'layouts/post_comment', :locals => {:comment => comment}%>
+        <% end %>
+    </div>
     <div style="width:90%; margin:auto">
         <h2>Leave a Comment</h2>
         <form action="/comment/create/<%=post.id%>" method="post">
@@ -39,4 +46,5 @@
             <input type="submit" class="btn btn-default"></input>
         </form>
     </div>
+</div>
 <% end %>
