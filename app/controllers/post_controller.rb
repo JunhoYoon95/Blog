@@ -1,6 +1,6 @@
 class PostController < ApplicationController
     def index
-        @posts = Post.all
+        @posts = Post.order(:created_at).all
         @author_email = current_user.email
     end
 

@@ -1,0 +1,9 @@
+var tab = "<%= tab %>"
+console.log("dd : ",tab)
+alert(tab)
+
+if(tab == "teachers"){
+    $("#admin").append("<%=j render :partial=>"teacher/index", :locals=>{:@blog=>@blog}%>");
+}
+
+

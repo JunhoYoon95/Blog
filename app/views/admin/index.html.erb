@@ -1,12 +1,15 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <%# <a class="nav-link active" aria-current="page" href="#">Teacher</a> %>
-    <a class="nav-link" href="/admin/change/teacher">Teachers</a>
+    <a class="nav-link" href="/admin/change/teacher">Teacher</a>
+    <%# <a class="nav-link" onclick="clicked('teacher')">Teachers</a> %>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/admin/change/post">Post</a>
+    <%# <a class="nav-link" onclick="clicked('post')">Post</a> %>
   </li>
   <li class="nav-item">
+    <%# <a class="nav-link" onclick="clicked('user')">User</a> %>
     <a class="nav-link" href="/admin/change/user">User</a>
   </li>
 </ul>
@@ -28,6 +31,14 @@
     <%= render :partial => 'layouts/posts'%>
 <% end %>
 
-<% if $tab == "user "%>
+<% if $tab == "user"%>
     DDDDDD
 <% end %>
+
+<div id = 'party'>
+</div>
+
+<script>
+  var tab2 = "<%= $tab %>";
+  console.log("tab2 : ", tab2)
+</script>

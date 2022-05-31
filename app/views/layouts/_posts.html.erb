@@ -1,4 +1,4 @@
-<% @posts = Post.all%>
+<% @posts = Post.order(created_at: :desc).all%>
 <% @posts.each do |post| %>
     <div class="card text-center mt-4">
         <div class="card-header">
@@ -26,6 +26,7 @@
         </div>
     </div>
     <hr>
+    
     <%post.comments.each do |comment|%>
         <div class="card" style="width: 90%; margin:auto">
             <div class="card-body">
