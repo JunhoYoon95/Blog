@@ -34,7 +34,7 @@
     <hr>
     
     <% post_comments = post.comments.order("comments.created_at DESC")%>
-    <div id="<%=post.id%>">
+    <div id="<%=post.id%>" class="collapse">
         <%post_comments.each do |comment|%>
             <%= render :partial => 'layouts/post_comment', :locals => {:comment => comment}%>
         <% end %>
