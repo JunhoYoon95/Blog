@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/teacher/edit/:id' =>'teacher#edit'
   post '/teacher/update/:id' =>'teacher#update'
   get '/teacher/delete/:id' =>'teacher#delete'
+
+  get '/like/:teacher_id' =>'teacher#like_create'
+  get '/unlike/:id' =>'teacher#like_delete'
   
   post '/post-create' =>'post#create'
   get '/post-new' =>'post#new'

@@ -3,6 +3,9 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:40px">
     <% @teachers.each do |teacher| %>
         <div class="col">
+        
+        <% likes = Like.where("teacher_id = ?", teacher.id).where("user_id =?", current_user.id)%>
+            
             <div class="card">
             <img src="<%= "/masterpiece.png" %>" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -14,7 +17,13 @@
                 </ul>
                 <div class="card-body">
                 <i class="bi bi-bookmark-heart"></i>
-                    <a href="#" class="card-link"><button style="background:transparent; border:none;">❤️ ♡</button></a>
+                <% if likes.size > 0 %>
+                    <% likes.each do |like|%>
+                        <a href="/unlike/<%=like.id%>" class="card-link"><button style="background:transparent; border:none;">❤️</button></a>
+                    <% end %>
+                <% else %> 
+                    <a href="/like/<%=teacher.id%>" class="card-link"><button style="background:transparent; border:none;">♡</button></a>
+                <% end %>
                     <a href="#" class="card-link">Classes</a>
                     <a href="#" class="card-link">Reviews</a>
                 </div>

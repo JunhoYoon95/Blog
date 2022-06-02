@@ -1,3 +1,4 @@
 class Teacher < ApplicationRecord
-    # has_many :classes
+    has_many :reviews
+    has_many :likes
 end
