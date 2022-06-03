@@ -1,0 +1,27 @@
+Total <%= @reviews.size%> reviews
+<%@reviews.each do |review|%>
+    <%= review.star%>
+    <%= review.comment%>
+    <%= review.timestamp%>
+<% end %>
+<%=@teacher_id%>
+
+<div class="container mt-4" style="width: 100%;">
+    <form action="/review_create/<%=@teacher_id%>" method="post">
+
+    
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Rating</span>
+            <input type="number" step="0.1" class="form-control" placeholder="Teacher Stars" aria-label="star" aria-describedby="basic-addon1" name="star">
+        </div>
+
+        <label for="basic-url" class="form-label"><b>Comment</b></label>
+        <div class="input-group">
+            <span class="input-group-text">Comment</span>
+            <textarea class="form-control" aria-label="With textarea" name="comment"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary mt-4" style="float: right;">Submit</button>
+    </form>
+</div>
+
