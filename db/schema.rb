@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_014335) do
     t.bigint "user_id"
     t.bigint "teacher_id"
     t.text "comment"
-    t.float "start"
+    t.integer "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
